@@ -1,0 +1,40 @@
+
+
+
+	Technical:
+
+			Concepts to be Learned:-  OOPS, JAVA BASICS, C OR CPP, SQL.
+						  DBMS-{NORMALISATION, JOINS OF TABLES} (ONLY CSE LEARN)
+						  OS  (ONLY CSE LEARN)
+                    
+                        
+                        Programming Concepts:-    ARRAYS, BITWISE OPERATORS, LINKEDLIST,LOOPS,SWITCH CASES, POINTERS, FUNCTIONS,HASHING,STACKS AND QUEUES.
+
+			Problem solving: Number conversions, Sorting-{Bubblesort, Quicksort},Searching(linear search,Binary search), Strings, MATRICES, Pattrens. 
+
+
+			
+        NON Techinal:
+
+
+				verbal, Quant, Reasoning.
+
+
+
+      
+
+	WEBSITES:
+
+		 C PROGRAMMING LEARNING -> https://www.tutorialspoint.com/cprogramming/index.htm
+
+		 PROBLEM SOLVING: Hackerrank, GeeksforGeeks.
+		
+		Programmming Practice : Geeks for Geeks(3rd preference) , Hacker rank(1st preference) , Spoj, Leetcode, Codechef(2nd preference).
+		
+   	         Verbal, Quant, Reasoning;- IndiaBIX
+
+		OOPS, DBMS, SQL --> TutorialsPoint, W3Schools and Youtube Tutorials.
+		
+   		Youtube channels: Techdose, Abdulbari, cpp nuts.
+
+   Coding Interviews: https://www.techiedelight.com/list-of-problems/
