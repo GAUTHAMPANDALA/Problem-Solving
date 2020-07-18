@@ -1,32 +1,52 @@
 
 						// SLIDING WINDOW TECHNIQUE //
 				// C Program to Find the Distinct elemets in the Subaaray of size K //.
-
-		// We use the Vector and set Concept as they dont store Duplicate Elemets, using sliding window Traversals //
-		// We can use hach techqnies to solve this problem, as yhis take o(k) space.//
+			 // We  use (hash techniqes/hash map) to solve this problem, as this take o(k) space.//
 
 #include <iostream>
-#include <vector>
-#include <unordered_set>
+#include <map>
 using namespace std;
 
-// Function to find all distinct elements present in each sub-array of size k in the array
-int CountDistinctElemetsinSuarraySizeK(int a,int k,int n)
+void countDistinct(int arr[],int k,int n)
 {
-	// loop through the vector
 	
+	map<int,int> hm;
+	int i,dist_count=0;
+	for(i=0;i<k;i++)			// calculate distinct elements for first window.
+	{
+	    if (hm[arr[i]] == 0) { 
+            dist_count++; 
+        } 
+        hm[arr[i]] += 1; 	
+	} 
+      printf("distinct elements between %d and %d is %d \n",i-k,i,dist_count);
 	
-    for (int i = 0; i < v.size() - (k-1); i++)      // This must from 0 to [n-k-1]
-    {
-        unordered_set<int> distinct(v.begin() + i, v.begin() + i + k);		// Takes windows of size [i to i+k], ie 0-4,5-9, etc.
- 
-        cout << "The count of distinct elements in the sub-array ["<< i << ", " << (i + k - 1) << "] is "<< distinct.size() << endl;
-    }
+	for(int i=k;i<n;i++)
+	{
+		
+	  if (hm[arr[i-k]] == 1) {  // as window going to change delete the i-kth dist_count, as we dont consider it.
+            dist_count--; 
+        } 
+        
+        hm[arr[i-k]]--;  // as window going to change delete the i-kth  occurance.
+        
+        if(hm[arr[i]]==0)
+        {
+        	dist_count++; 
+		}
+		hm[arr[i]] += 1; 
+		
+	  printf("distinct elements between %d and %d is %d \n",i-k,i,dist_count);
+        
+	}
 }
 
 int main()
 {
-	vector<int> a = { 2, 1, 2, 3, 2, 1, 4, 5 };
-    int k = 5;
-    CountDistinctElemetsinSuarraySizeK(a,k);	  
+    int arr[] = { 1, 2, 1, 3, 4, 2, 3 }; 
+    int size = 7; 
+    int k = 4; 
+    countDistinct(arr, k, size); 
+  
+    return 0; 
 }
