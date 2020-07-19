@@ -7,26 +7,27 @@ using namespace std;
 
 int subArraySum(int arr[], int n, int sum)
 {
-     int curr_sum = 0, start = 0, i;
+      /* Initialize curr_sum as value of first element and starting point as 0 */
+    int curr_sum = 0, start = 0, i;
 
     /* Add elements one by one to curr_sum and if the curr_sum exceeds the sum,then remove starting element */
-    for (i = 0; i <= n; i++) {
+    for (i = 0; i < n; i++) {
     	
-    	 curr_sum = curr_sum + arr[i];  // Add this element to curr_sum
+    	 curr_sum = curr_sum + arr[i];
         // If curr_sum exceeds the sum, then remove the starting elements 
         // This is the termination/Decrementing Statement.
-        while (curr_sum > sum && start < i - 1) {
+        while (curr_sum > sum) {
             curr_sum = curr_sum - arr[start];
             start++;
         }
 
         // If curr_sum becomes equal to sum, then return true
         if (curr_sum == sum) {
-            cout << "Sum found between indexes "<< start << " and " << i;
+            cout << "Sum found between indexes "<< start+1 << " and " << i+1;
             return 1;
         }
 
-        
+        // Add this element to curr_sum
        
     }
 
