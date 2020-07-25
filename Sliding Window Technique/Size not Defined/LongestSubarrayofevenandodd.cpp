@@ -8,56 +8,32 @@
 using namespace std; 
 
 
-int max(int a,int b)
-{
-	if(a>b)
-	return a;
-	else
-	return b;
-}
+
 //Complete this function
 int maxEvenOdd(int arr[], int n) 
 { 
-   int res=0;
-   int curr=0;
-   int si=0,ei; // si and ei is starting index and ending index
-   for(int i=0;i<n;i++)
+   int res=1; // Considering the first element.
+   int curr=1;
+   int ei=0;
+  
+   for(int i=1;i<n;i++)
    {
-   	   
-   	   if(i==n-1)
-   	   {
-   	   	  if((arr[i]%2==0&&arr[i-1]%2!=0)||(arr[i]%2!=0&&arr[i-1]%2==0)){
-			curr++; 
-             ei=i;
-          }
-                
-       }
-      else if((arr[i]%2==0&&arr[i+1]%2!=0)||(arr[i]%2!=0&&arr[i+1]%2==0))
+   	   if((arr[i]%2==0&&arr[i-1]%2!=0)||(arr[i]%2!=0&&arr[i-1]%2==0))
        {
            curr++;
-           ei=i;
+		    if(curr>res)
+			{ 
+			   ei=i;
+               res=curr;
+			}
        }
        else  // termination for new subaarray.
-       {
-       curr=0;
-       ei=0;
-       }
-      
-       res= max(res,curr);
-       
-        
-   }
-    si=ei-res;
-    
-    cout<<si<<" "<<ei<<endl;
- 
+       curr=1;
+    }
+   
+   cout<< "Starting index: "<<ei-res<<" "<<"ending index: "<<ei<<endl;
    return res;
 } 
-
-
-
-
-
 
 int main() 
 { 
