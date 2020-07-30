@@ -13,11 +13,15 @@
 int peakelement(int a[],int low,int high,int n)
 {
 	
-	if(high>=low)
+     if(a[0]>a[1])
+	{
+	  return a[0];
+	}	
+     else if(high>=low)
 	{
 		int mid= (low+high)/2;
 		
-		if((mid==0 && a[mid]>a[mid+1]) || (mid==0 && a[mid]>a[mid+1])) // Checking the extreme conditions in the array.
+		if((mid==0 && a[mid]>a[mid+1])) // Checking the extreme conditions in the array.
 		{
 			return mid;
 		}
@@ -27,12 +31,15 @@ int peakelement(int a[],int low,int high,int n)
 			return mid;
 		}
 		
-		if(a[mid]<a[mid-1] && mid>0)		             // traverse left if a[mid-1]>a[mid]
-		{
-			peakelement(a,low,mid-1,n);
+		if(mid==n-1 && a[mid]>a[mid-1])
+                  {
+        	return mid;
 		}
-		
-		peakelement(a,mid+1,high,n);  		        	// traverse left if a[mid+1]>a[mid]
+	    // if(mid>0 && a[mid-1]>a[mid])
+		//{
+		peakelement(a,low,mid-1,n);
+	   // }
+		peakelement(a,mid+1,high,n);  		        	
 		 	
 	}
 
