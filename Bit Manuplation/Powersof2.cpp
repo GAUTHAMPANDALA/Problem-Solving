@@ -24,7 +24,7 @@ int main() {
 	}
 	else
 	{
-	    if((x&(x-1))==0)
+	    if((x&(x-1))==0)	// for even number  x & x-1 will be zero.
 	    printf("YES\n");
 	    else
 	    printf("NO\n");
