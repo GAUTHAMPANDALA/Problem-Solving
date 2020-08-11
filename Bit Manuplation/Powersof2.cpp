@@ -18,10 +18,7 @@ int main() {
 	{
 	    printf("YES\n");
 	}
-	else if(x==1099511627776)
-		{
-	    printf("YES\n");
-	}
+	
 	else
 	{
 	    if((x&(x-1))==0)	// for even number  x & x-1 will be zero.
