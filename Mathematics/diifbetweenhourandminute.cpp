@@ -1,5 +1,6 @@
 
 					// Difference between the angle hand and hour hand	//
+		// Formula:  ans = abs(((hr*60 +min)/2) -(6*min)). as 30 deg per hr and 1/2 per mmin for hr hand and 6 deg per minutte for min hand//
 
 
 
@@ -10,7 +11,7 @@ using namespace std;
 	int getAngle(double hr, double min)
 {
     while (min >= 60) min -= 60;
-    while (hr >= 12) hr -= 12;
+    while (hr >= 12) hr -= 12;		// for 24 hr format.
     double hrAngle = (hr*60 + min)/2;  //30 deg per hour, 1/2 deg per minute
     double minAngle = 6*min;           //6 deg per minute
     double diff = abs(hrAngle - minAngle);
