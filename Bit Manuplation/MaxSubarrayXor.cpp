@@ -1,28 +1,36 @@
 
 						// Maximum Subarray Xor //
-		// Given Array of integers find the maximum subset array xor value this is O(n^2) approach//
+		// Given Array of integers find the maximum subarray xor value this is O(n^2) approach//
 
+
+// A simple C++ program to find max subarray XOR 
 #include<bits/stdc++.h> 
 using namespace std; 
-
-
-int main()
-{
-	int a[]={2,4,5,7,8,9};
-	int n=6;
-	 int sum=0,m=0;
-    for(int i=0;i<n;i++)
-    {      
-        for(int j=i;j<n;j++)
-        {
-            for(int k=i;k<n;k++)
-            {
-               sum=sum^a[k];
-               m=max(m,sum);
-            }
-        }
-    }
-    
-    cout<<m;
-}
-
+  
+int maxSubarrayXOR(int arr[], int n) 
+{ 
+    int ans = INT_MIN;     // Initialize result 
+  
+    // Pick starting points of subarrays 
+    for (int i=0; i<n; i++) 
+    { 
+        int curr_xor = 0; // to store xor of current subarray 
+  
+        // Pick ending points of subarrays starting with i 
+        for (int j=i; j<n; j++) 
+        { 
+            curr_xor = curr_xor ^ arr[j]; 
+            ans = max(ans, curr_xor); 
+        } 
+    } 
+    return ans; 
+} 
+  
+// Driver program to test above functions 
+int main() 
+{ 
+    int arr[] = {8, 1, 2, 12}; 
+    int n = sizeof(arr)/sizeof(arr[0]); 
+    cout << "Max subarray XOR is " << maxSubarrayXOR(arr, n); 
+    return 0; 
+} 
