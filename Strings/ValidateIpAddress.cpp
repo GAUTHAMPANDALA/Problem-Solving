@@ -24,13 +24,15 @@
 #include <string.h>
 #include <ctype.h>
 int validate_number(char *str,int i) {
-	
-	while (*str!=NULL) {
-   //	printf("%d %c ",i,*str);
+	int len = strlen(str);
+	int i1=0;
+	while (i1<len) {
+     //	printf("%d %c ",i,*str);
       if(!isdigit(*str)){ //if the character is not a number, return false
          
          return 0;
       }
+      i1++;
       str++; //point to next character
    }
   /*  if(*str==NULL)
