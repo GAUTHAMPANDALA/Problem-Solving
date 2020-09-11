@@ -1,53 +1,62 @@
 
 			// Next Permutation of the Given array. as 123 --> 132, 132 --> 213, 115-151, 321 -> 123.
+			// C++ program to find the smallest number which greater than a given number \
+			 // and has same set of digits as given number 
 
 
 #include<bits/stdc++.h>
 using namespace std;
 
-void printarray(int a[],int n)
-{
-	for(int i=0;i<n;i++){
-		    cout<<a[i]<<" ";
-		}
-        cout<<endl;
-}
+void swap(char *a, char *b) 
+{ 
+    char temp = *a; 
+	*a = *b; 
+	*b = temp; 
+} 
 
-void nextpermutation(int a[],int n)
+void nextpermutation(char number[],int n)
 {
-	   int k=-1;
-        for(int i=0;i<n-1;i++)
-         {
-                if(a[i]<a[i+1])			    	   // Step-1: Find the largest index k, such that A[i]<A[i+1].
-                    k=i;				
-          }
-        if(k==-1)							
-            sort(a,a+n);
-        int l;
-        for(int i=k+1;i<n;i++){			         //Step-2: Find the largest index l, such that A[l]>A[k].
-              if(a[i]>a[k])
-                l=i;
-        }
-        swap(a[k],a[l]);					    // Step-3: Swap a[k],a[l].
-        reverse(a+k+1,a+n);					   // Step-4: Reverse (a[k+1] to a[n].)
-        printarray(a,n);
+	  	int i, j; 
+
+	// I) Start from the right most digit and find the first digit that is 
+	// smaller than the digit next to it. 
+	for (i = n-1; i > 0; i--) 
+		if (number[i] > number[i-1]) 
+		break; 
+
+	// If no such digit is found, then all digits are in descending order 
+	// means there cannot be a greater number with same set of digits 
+	if (i==0) 
+	{ 
+		cout << "Next number is not possible"; 
+		return; 
+	} 
+
+	// II) Find the smallest digit on right side of (i-1)'th digit that is 
+	// greater than number[i-1] 
+	int x = number[i-1], smallest = i; 
+	for (j = i+1; j < n; j++) 
+		if (number[j] > x && number[j] < number[smallest]) 
+			smallest = j; 
+
+	// III) Swap the above found smallest digit with number[i-1] 
+	swap(&number[smallest], &number[i-1]); 
+
+	// IV) Sort the digits after (i-1) in ascending order 
+	sort(number + i, number + n); 
+
+	cout << "Next number with same set of digits is " << number; 
+
+	return; 
+
 }
 
 
 
 int main()
 {
-    int t,n;
-    int k=-1;
-    cin>>t;									//Testcases
-    while(t--)
-    {
-        cin>>n;
-        int a[n];
-        for(int i=0;i<n;i++){
-		     cin>>a[i];
-		 }
-     nextpermutation(a,n);    
-    }
+     char digits[] = "12453"; 
+	 int n = strlen(digits); 
+     nextpermutation(digits,n);    
+    
 }
-
