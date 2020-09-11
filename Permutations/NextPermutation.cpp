@@ -2,6 +2,10 @@
 			// Next Permutation of the Given array. as 123 --> 132, 132 --> 213, 115-151, 321 -> 123.
 			// C++ program to find the smallest number which greater than a given number \
 			 // and has same set of digits as given number 
+// Algorithm and Obervation.
+// if all digits sorted in descending order, then output is always “Not Possible”. For example, 4321.
+// If all digits are sorted in ascending order, then we need to swap last two digits. For example, 1234.
+// For other cases, we need to process the number from rightmost side, like in code.
 
 
 #include<bits/stdc++.h>
