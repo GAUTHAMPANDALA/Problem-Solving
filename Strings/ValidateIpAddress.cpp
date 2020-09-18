@@ -23,7 +23,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-int validate_number(char *str,int i) {
+int validate_number(char *str) {
 	int len = strlen(str);
 	int i1=0;
 	while (i1<len) {
@@ -54,7 +54,7 @@ int validate_ip(char *ip) { //check whether the IP is valid or not
       if (ptr == NULL)
          return 0;
    while (ptr) {
-      if (!validate_number(ptr,dots)) //check whether the sub string is holding only number or not
+      if (!validate_number(ptr)) //check whether the sub string is holding only number or not
             return 0;
       num = atoi(ptr); //convert substring to number
      if (num >= 0 && num <= 255) {
