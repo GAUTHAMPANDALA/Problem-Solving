@@ -15,7 +15,7 @@ void stockBuySell(int a[], int n)
     while (i < n - 1) { 
 	  
         
-        while ((i < n - 1) && (a[i + 1] <= a[i]))   	   // Find Local Minima(a[i]<=a[i-1]) then buy, limit is (n-2) 
+        while ((i < n - 1) && (a[i + 1] <= a[i]))   	   // Find Local Minima(a[i]<=a[i+1]) then buy, limit is (n-2) 
             i++; 										   	       //increment index
    
         if (i == n - 1) 									  	 // If we reached the end, break.
@@ -25,10 +25,10 @@ void stockBuySell(int a[], int n)
 		i++;  													//Increment the index.
   
         
-        while ((i < n) && (a[i] >= a[i - 1])) 			// Find Local Maxima(a[i]>=a[i-1]) then sell,limit is (n-1)
+        while ((i < n-1) && (a[i+1] >= a[i])) 			// Find Local Maxima(a[i]>=a[i+1]) then sell,limit is (n-2)
             i++; 
             
-        int sell = i - 1;   		 					// Store the index of maxima as one index is incremented, we should decrement by 1.
+        int sell = i ;   i++;		 					// Store the index of maxima as one index is incremented, we should decrement by 1.
         
         printf( "Buy on day: %d and Sell on day:%d \n",buy,sell);
     } 
