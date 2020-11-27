@@ -44,40 +44,30 @@ int maxWater(int height[], int n)
 	for(int i = 0; i < n; i++)
 	{
 		
-		// Remove bars from the stack
-		// until the condition holds
+		// Remove bars from the stack until the condition holds
 		while ((!st.empty()) && (height[st.top()] < height[i]))
 		{
 			
-			// Store the height of the top
-			// and pop it.
+			// Store the height of the top and pop it.
 			int pop_height = height[st.top()];
 			st.pop();
 
-			// If the stack does not have any
-			// bars or the the popped bar
-			// has no left boundary
+			// If the stack does not have any bars or the the popped bar has no left boundary
 			if (st.empty())
 				break;
 
-			// Get the distance between the
-			// left and right boundary of
-			// popped bar
+			// Get the distance between the left and right boundary of popped bar
 			int distance = i - st.top() - 1;
 
 			// Calculate the min. height
-			int min_height = min(height[st.top()],
-								height[i]) -
-							pop_height;
-          cout<<"min(height[st.top()],height[i]) and pop height "<< height[st.top()]<<" "<<height[i]<<" "<<pop_height<<endl;
-          cout<<"mih_height and dis "<<min_height<<" "<<distance<<endl;
+			int min_height = min(height[st.top()],height[i]) -pop_height;
+                    cout<<"min(height[st.top()],height[i]) and pop height "<< height[st.top()]<<" "<<height[i]<<" "<<pop_height<<endl;
+                    cout<<"mih_height and dis "<<min_height<<" "<<distance<<endl;
 
 			ans += distance * min_height;
 		}
 
-		// If the stack is either empty or
-		// height of the current bar is less than
-		// or equal to the top bar of stack
+		// If the stack is either empty or height of the current bar is less than or equal to the top bar of stack
 		st.push(i);
 	}
 	return ans;
